@@ -1,23 +1,20 @@
-'''
+from flask import Flask
 from flask import Blueprint, render_template
 
+app = Flask(__name__)
 
-views = Blueprint(__name__, "views")
-
-@views.route("/")
+@app.route("/")
 def home():
     return render_template("home.html")
-
-
-@views.route("/profile/<username>")
+@app.route("/profile/<username>")
 def profile(username):
     return render_template("home.html", name=username)
-
-@views.route("/templates/fbla.html")
+@app.route("/templates/fbla.html")
 def fbla():
     return render_template("fbla.html")
-
-@views.route("/templates/nhs.html")
+@app.route("/templates/nhs.html")
 def nhs():
     return render_template("nhs.html")
-'''
+
+if __name__ == '__main__':
+    app.run(debug=True)
