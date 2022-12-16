@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    body {
+      background-color: #b4b3b3;
+      color: #000000;
+      font-family: sans-serif;
+    }
+    h1 {
+      text-align: center;
+      color: #9b3535;
+    }
+    p {
+      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      text-indent: 50px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    div.box1 {
+      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-size: 14px;
+      background-color: #faf9f9;
+      border: 1px solid #000000;
+      padding: 20px;
+      position: absolute;
+      top: 35%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+    }
+    div.box2 {
+      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-size: 14px;
+      background-color: #9b3535;
+      border: 1px solid #000000;
+      padding: 20px;
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+    }
+    div.box3 {
+      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-size: 14px;
+      background-color: #8a8888;
+      border: 1px solid #000000;
+      padding: 20px;
+      position: absolute;
+      top: 35%;
+      left: 80%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+    }
+  </style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+</head>
+<body>
+  <h1>Huntley High School Clubs</h1>
+  <input id="searchbar" type="text"
+        name="search" placeholder= "Search clubs...">
+  <ol id='ClubList'>
+    <div class="box1">
+      <p>
+        <a href="../templates/fbla.html" id="fbla"> <center>FBLA</center></a>
+      </p>
+    </div>
+    <div class="box2">
+      <p>
+        <a href="../templates/nhs.html" id="NHS"> <center>NHS</center></a>
+      </p>
+    </div>
+    <div class="box3">
+      <p>
+        <a href="../templates/scio.html" id="Sci-O"> <center>Sci-O</center></a>
+      </p>
+    </div>
+</ol>
+
+<p> 
+  Hello, {{name}} 
+  Click on the search bar above to search for clubs</p>
+<div class="topnav">
+  </div>
+</body>
+</html>
+
+
+
+<!--
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>My Flask App</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+</body>
+</html>
+-->
