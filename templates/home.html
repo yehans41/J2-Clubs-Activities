@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+{% extends 'base.html' %}
+{% block title %} Home {%endblock%}
+{% block body %}
   <style>
+#mySearch {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 25%; /* Full-width */
+  position: absolute;
+  left: 3%; /*position on screen*/
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myMenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myMenu li a {
+  margin-top: -1px; /* Prevent double borders */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+#myMenu li a:hover {
+  background-color: #eee;
+}
     body {
       background-color: #b4b3b3;
       color: #000000;
@@ -11,9 +43,12 @@
       color: #9b3535;
     }
     p {
-      font-family: Verdana, Geneva, "Tahoma", sans-serif;
-      font-size: 14px;
+      font-family:sans-serif;
+      font-size: 16px;
       line-height: 1.5;
+      position: absolute;
+      top: 20%;
+      left: 2%;
       text-indent: 50px;
     }
     img {
@@ -56,54 +91,188 @@
       transform: translate(-50%, -50%);
       width: 300px;
     }
+    div.box4 {
+      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-size: 14px;
+      background-color: #9b3535;
+      border: 1px solid #000000;
+      padding: 20px;
+      position: absolute;
+      top: 55%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+    }
+    div.box5 {
+      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-size: 14px;
+      background-color: #8a8888;
+      border: 1px solid #000000;
+      padding: 20px;
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+    }
+    div.box6 {
+      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-size: 14px;
+      background-color: #faf9f9;
+      border: 1px solid #000000;
+      padding: 20px;
+      position: absolute;
+      top: 55%;
+      left: 80%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+    }
+    div.box7 {
+      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-size: 14px;
+      background-color: #8a8888;
+      border: 1px solid #000000;
+      padding: 20px;
+      position: absolute;
+      top: 75%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+    }
+    div.box8 {
+      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-size: 14px;
+      background-color: #faf9f9;
+      border: 1px solid #000000;
+      padding: 20px;
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+    }
+    div.box9 {
+      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-size: 14px;
+      background-color: #9b3535;
+      border: 1px solid #000000;
+      padding: 20px;
+      position: absolute;
+      top: 75%;
+      left: 80%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+    }
+    div.box10 {
+      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-size: 14px;
+      background-color: #faf9f9;
+      border: 1px solid #000000;
+      padding: 20px;
+      position: absolute;
+      top: 95%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+    }
+    div.box11 {
+      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-size: 14px;
+      background-color: #9b3535;
+      border: 1px solid #000000;
+      padding: 20px;
+      position: absolute;
+      top: 95%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+    }
+    div.box12 {
+      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-size: 14px;
+      background-color: #8a8888;
+      border: 1px solid #000000;
+      padding: 20px;
+      position: absolute;
+      top: 95%;
+      left: 80%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+    }
   </style>
 
 <head>
+  <title>Home</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
 </head>
 <body>
-  <h1>Huntley High School Clubs</h1>
-  <input id="searchbar" type="text"
-        name="search" placeholder= "Search clubs...">
-  <ol id='ClubList'>
-    <div class="box1">
-      <p>
-        <a href="../templates/fbla.html" id="fbla"> <center>FBLA</center></a>
-      </p>
-    </div>
-    <div class="box2">
-      <p>
-        <a href="../templates/nhs.html" id="NHS"> <center>NHS</center></a>
-      </p>
-    </div>
-    <div class="box3">
-      <p>
-        <a href="../templates/scio.html" id="Sci-O"> <center>Sci-O</center></a>
-      </p>
-    </div>
-</ol>
+  <h1> Huntley High School Clubs</h1>
+  
+  <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search..." title="Type in a category">
+<ul id="myMenu">
+  <div class="box1" id="Choir">
+  <li><a href="../templates/ASchoir.html" style= "color: #000000;" > After School Choir</a></li>
+  </div>
+  <div class="box2">
+  <li><a href="../templates/art.html" style= "color: #faf9f9;" > Art Club</a></li>
+  </div>
+  <div class="box3">
+  <li><a href="../templates/BandMP.html" style= "color: #9b3535;" > Band</a></li>
+  </div>
+  <div class="box4">
+  <li><a href="../templates/buddies.html" style= "color: #faf9f9;" > Buddies Club</a></li>
+  </div>
+  <div class="box5">
+  <li><a href="../templates/chess.html" style= "color: #9b3535;" > Chess Team</a></li>
+  </div>
+  <div class="box6">
+  <li><a href="../templates/color.html" style= "color: #000000;" >Color Guard</a></li>
+  </div>
+  <div class="box7">
+  <li><a href="../templates/esports.html" style= "color: #9b3535;" >Competitive eSports</a></li>
+  </div>
+  <div class="box8">
+  <li><a href="../templates/computer.html" style= "color: #000000;" >Computer Club</a></li>
+  </div>
+  <div class="box9">
+  <li><a href="../templates/theatre.html" style= "color: #faf9f9;" >Contest Theatre</a></li>
+  </div>
+  <div class="box10">
+  <li><a href="../templates/writingclub.html" style= "color: #000000;" >Creative Writing Club</a></li>
+  </div>
+  <div class="box11">
+  <li><a href="../templates/culinary.html" style= "color: #faf9f9;" >Culinary Club</a></li>
+  </div>
+  <div class="box12">
+  <li><a href="../templates/dance.html" style= "color: #9b3535;" >Orchesis Dance Program</a></li>
+  </div>
+</ul>
 
+<script>
+  function myFunction() {
+    // Declare variables
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("mySearch");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myMenu");
+    li = ul.getElementsByTagName("li");
+  
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+  </script>
 <p> 
   Hello, {{name}} 
   Click on the search bar above to search for clubs</p>
-<div class="topnav">
-  </div>
 </body>
+{%endblock%}
 </html>
-
-
-
-<!--
-    <!DOCTYPE html>
-<html>
-<head>
-    <title>My Flask App</title>
-</head>
-<body>
-    <h1>Hello World!</h1>
-</body>
-</html>
--->
