@@ -1,12 +1,22 @@
 #imports and app creation
+from multiprocessing import connection
+import sqlite3
 from flask import Flask
 from flask import Blueprint, render_template
 
 app = Flask(__name__)
+
+def get_db_connection():
+    connection = sqlite3.connect('RealDB.db')
+    connection.row_factory = sqlite3.Row #goes through database
+    return connection
 #routing html pages
 @app.route("/")
 def home():
-    return render_template("home.html")
+    connection = get_db_connection()
+    clubs = connection.execute('SELECT * FROM Clubs').fetchall() #selects everything from table
+    connection.close()
+    return render_template("home.html", clubs=clubs)
 @app.route("/profile/<username>")
 def profile(username):
     return render_template("home.html", name=username)

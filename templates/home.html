@@ -4,11 +4,11 @@
 {% block title %} Home {%endblock%}
 {% block body %}
   <style>
-#mySearch {
+#myInput {
   background-image: url('/css/searchicon.png'); /* Add a search icon to input */
   background-position: 10px 12px; /* Position the search icon */
   background-repeat: no-repeat; /* Do not repeat the icon image */
-  width: 25%; /* Full-width */
+  width: 25%; /* Quarter-width */
   position: absolute;
   left: 3%; /*position on screen*/
   font-size: 16px; /* Increase font-size */
@@ -17,6 +17,24 @@
   margin-bottom: 12px; /* Add some space below the input */
 }
 
+#myTable {
+  border-collapse: collapse; /* Collapse borders */
+  width: 100%; /* Full-width */
+  border: 1px solid #ddd; /* Add a grey border */
+  font-size: 18px; /* Increase font-size */
+}
+
+#myTable th, #myTable td {
+  text-align: left; /* Left-align text */
+  padding: 12px; /* Add padding */
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
 #myMenu {
   list-style-type: none;
   padding: 0;
@@ -54,6 +72,24 @@
     img {
       max-width: 100%;
       height: auto;
+    }
+    div.box {
+      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-size: 14px;
+      background-color: #9b3535;
+      border: 1px solid #000000;
+      color: #faf9f9;
+      padding: 20px;
+      width: 300px;
+    }
+    div.box0 {
+      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-size: 14px;
+      background-color: #faf9f9;
+      border: 1px solid #000000;
+      color: #000000;
+      padding: 20px;
+      width: 300px;
     }
     div.box1 {
       font-family: Verdana, Geneva, "Tahoma", sans-serif;
@@ -209,23 +245,22 @@
 </head>
 <body>
   <h1> Huntley High School Clubs</h1>
-  
   <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search..." title="Type in a category">
 <ul id="myMenu">
-  <div class="box1" id="Choir">
-  <li><a href="../templates/ASchoir.html" style= "color: #000000;" > After School Choir</a></li>
+  <div class="box1">
+  <li><a href="../templates/ASchoir.html" style= "color: #000000;" >After School Choir</a></li>
   </div>
   <div class="box2">
-  <li><a href="../templates/art.html" style= "color: #faf9f9;" > Art Club</a></li>
+  <li><a href="../templates/art.html" style= "color: #faf9f9;" >Art Club</a></li>
   </div>
   <div class="box3">
-  <li><a href="../templates/BandMP.html" style= "color: #9b3535;" > Band</a></li>
+  <li><a href="../templates/BandMP.html" style= "color: #9b3535;" >Band</a></li>
   </div>
   <div class="box4">
-  <li><a href="../templates/buddies.html" style= "color: #faf9f9;" > Buddies Club</a></li>
+  <li><a href="../templates/buddies.html" style= "color: #faf9f9;" >Buddies Club</a></li>
   </div>
   <div class="box5">
-  <li><a href="../templates/chess.html" style= "color: #9b3535;" > Chess Team</a></li>
+  <li><a href="../templates/chess.html" style= "color: #9b3535;" >Chess Team</a></li>
   </div>
   <div class="box6">
   <li><a href="../templates/color.html" style= "color: #000000;" >Color Guard</a></li>
@@ -249,9 +284,30 @@
   <li><a href="../templates/dance.html" style= "color: #9b3535;" >Orchesis Dance Program</a></li>
   </div>
 </ul>
+<input type="text" id="myInput" onkeyup="myFunction1()" placeholder="Search...">
 
+<table id="myTable">
+  <tr class="header">
+    <th style="width:60%;">Name</th>
+    <th style="width:40%;">Dates</th>
+    {% for clubs in clubs %}
+      <tr>
+      <td>
+        <div class="box">
+      {{clubs['Name']}}
+        </div>
+      </td>
+      <td>
+        <div class="box0">
+      {{clubs['Dates']}}
+        </div>
+      </td>
+      </tr>
+    {% endfor %}
+  </tr>
+</table>
 <script>
-  function myFunction() {
+  /*function myFunction() {
     // Declare variables
     var input, filter, ul, li, a, i;
     input = document.getElementById("mySearch");
@@ -268,9 +324,32 @@
         li[i].style.display = "none";
       }
     }
-  }
+  }*/
   </script>
-<p> 
+  <script>
+    function myFunction1() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+    
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+    </script>
+<p>
   Hello, {{name}} 
   Click on the search bar above to search for clubs</p>
 </body>
