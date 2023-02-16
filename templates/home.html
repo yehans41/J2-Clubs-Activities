@@ -1,206 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-{% extends 'base.html' %}
-{% block title %} Home {%endblock%}
 {% block body %}
-  <style>
-#mySearch {
+<style>
+#myInput {
   background-image: url('/css/searchicon.png'); /* Add a search icon to input */
   background-position: 10px 12px; /* Position the search icon */
   background-repeat: no-repeat; /* Do not repeat the icon image */
-  width: 25%; /* Full-width */
+  width: 25%; /* Quarter-width */
   position: absolute;
+  top: 13%;
   left: 3%; /*position on screen*/
   font-size: 16px; /* Increase font-size */
   padding: 12px 20px 12px 40px; /* Add some padding */
   border: 1px solid #ddd; /* Add a grey border */
   margin-bottom: 12px; /* Add some space below the input */
 }
-
-#myMenu {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+#myTable {
+  border-collapse: collapse; /* Collapse borders */
+  width: 85%; /* width */
+  position: absolute;
+  top: 25%;
+  border: 1px solid #7e7e7e; /* Add a grey border */
+  font-size: 18px; /* Increase font-size */
 }
-
-#myMenu li a {
-  margin-top: -1px; /* Prevent double borders */
-  padding: 12px; /* Add some padding */
-  text-decoration: none; /* Remove default text underline */
-  font-size: 18px; /* Increase the font-size */
-  display: block; /* Make it into a block element to fill the whole list */
+#myTable th, #myTable td {
+  text-align: left; /* Left-align text */
+  padding: 12px; /* Add padding */
 }
-#myMenu li a:hover {
-  background-color: #eee;
+#myTable tr {
+  border-bottom: 1px solid #7e7e7e;
 }
-    body {
+#myTable tr.header, #myTable tr:hover {
+  background-color: #7e7e7e;
+}
+#p1 {
+  color: #000000;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  position: absolute;
+  top: 18%;
+  left: 2%; /*position on screen*/
+}
+body {
       background-color: #b4b3b3;
       color: #000000;
       font-family: sans-serif;
-    }
-    h1 {
+}
+h1 {
       text-align: center;
       color: #9b3535;
-    }
-    p {
-      font-family:sans-serif;
-      font-size: 16px;
+}
+p {
+      font-family:'Segoe UI';
+      font-size: 16;
       line-height: 1.5;
       position: absolute;
-      top: 20%;
-      left: 2%;
+      top: 18%;
+      left: -1%;
       text-indent: 50px;
-    }
-    img {
+}
+img {
       max-width: 100%;
       height: auto;
-    }
-    div.box1 {
-      font-family: Verdana, Geneva, "Tahoma", sans-serif;
-      font-size: 14px;
-      background-color: #faf9f9;
-      border: 1px solid #000000;
-      padding: 20px;
-      position: absolute;
-      top: 35%;
-      left: 20%;
-      transform: translate(-50%, -50%);
-      width: 300px;
-    }
-    div.box2 {
+}
+div.box1 {
       font-family: Verdana, Geneva, "Tahoma", sans-serif;
       font-size: 14px;
       background-color: #9b3535;
       border: 1px solid #000000;
+      color: #faf9f9;
       padding: 20px;
-      position: absolute;
-      top: 35%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       width: 300px;
-    }
-    div.box3 {
+}
+div.box2 {
       font-family: Verdana, Geneva, "Tahoma", sans-serif;
       font-size: 14px;
-      background-color: #8a8888;
+      background-color: #363131;
       border: 1px solid #000000;
+      color: #faf9f9;
       padding: 20px;
-      position: absolute;
-      top: 35%;
-      left: 80%;
-      transform: translate(-50%, -50%);
       width: 300px;
-    }
-    div.box4 {
-      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+}
+div.box3{
+  font-family: Verdana, Geneva, "Tahoma", sans-serif;
       font-size: 14px;
-      background-color: #9b3535;
+      background-color: #000000;
       border: 1px solid #000000;
+      color: #faf9f9;
       padding: 20px;
-      position: absolute;
-      top: 55%;
-      left: 20%;
-      transform: translate(-50%, -50%);
       width: 300px;
-    }
-    div.box5 {
-      font-family: Verdana, Geneva, "Tahoma", sans-serif;
-      font-size: 14px;
-      background-color: #8a8888;
-      border: 1px solid #000000;
-      padding: 20px;
-      position: absolute;
-      top: 55%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 300px;
-    }
-    div.box6 {
-      font-family: Verdana, Geneva, "Tahoma", sans-serif;
-      font-size: 14px;
-      background-color: #faf9f9;
-      border: 1px solid #000000;
-      padding: 20px;
-      position: absolute;
-      top: 55%;
-      left: 80%;
-      transform: translate(-50%, -50%);
-      width: 300px;
-    }
-    div.box7 {
-      font-family: Verdana, Geneva, "Tahoma", sans-serif;
-      font-size: 14px;
-      background-color: #8a8888;
-      border: 1px solid #000000;
-      padding: 20px;
-      position: absolute;
-      top: 75%;
-      left: 20%;
-      transform: translate(-50%, -50%);
-      width: 300px;
-    }
-    div.box8 {
-      font-family: Verdana, Geneva, "Tahoma", sans-serif;
-      font-size: 14px;
-      background-color: #faf9f9;
-      border: 1px solid #000000;
-      padding: 20px;
-      position: absolute;
-      top: 75%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 300px;
-    }
-    div.box9 {
-      font-family: Verdana, Geneva, "Tahoma", sans-serif;
-      font-size: 14px;
-      background-color: #9b3535;
-      border: 1px solid #000000;
-      padding: 20px;
-      position: absolute;
-      top: 75%;
-      left: 80%;
-      transform: translate(-50%, -50%);
-      width: 300px;
-    }
-    div.box10 {
-      font-family: Verdana, Geneva, "Tahoma", sans-serif;
-      font-size: 14px;
-      background-color: #faf9f9;
-      border: 1px solid #000000;
-      padding: 20px;
-      position: absolute;
-      top: 95%;
-      left: 20%;
-      transform: translate(-50%, -50%);
-      width: 300px;
-    }
-    div.box11 {
-      font-family: Verdana, Geneva, "Tahoma", sans-serif;
-      font-size: 14px;
-      background-color: #9b3535;
-      border: 1px solid #000000;
-      padding: 20px;
-      position: absolute;
-      top: 95%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 300px;
-    }
-    div.box12 {
-      font-family: Verdana, Geneva, "Tahoma", sans-serif;
-      font-size: 14px;
-      background-color: #8a8888;
-      border: 1px solid #000000;
-      padding: 20px;
-      position: absolute;
-      top: 95%;
-      left: 80%;
-      transform: translate(-50%, -50%);
-      width: 300px;
-    }
-  </style>
-
+}
+#filter{
+  color: #000000;
+  font-family: sans-serif;
+  position: absolute;
+  top: 12%;
+  left: 32%;
+  padding: 5px;
+	width: 150px;
+	margin-right: 10px;
+  margin: 10px 0;
+}
+</style>
 <head>
   <title>Home</title>
   <meta charset="UTF-8">
@@ -209,70 +107,92 @@
 </head>
 <body>
   <h1> Huntley High School Clubs</h1>
-  
-  <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search..." title="Type in a category">
-<ul id="myMenu">
-  <div class="box1" id="Choir">
-  <li><a href="../templates/ASchoir.html" style= "color: #000000;" > After School Choir</a></li>
-  </div>
-  <div class="box2">
-  <li><a href="../templates/art.html" style= "color: #faf9f9;" > Art Club</a></li>
-  </div>
-  <div class="box3">
-  <li><a href="../templates/BandMP.html" style= "color: #9b3535;" > Band</a></li>
-  </div>
-  <div class="box4">
-  <li><a href="../templates/buddies.html" style= "color: #faf9f9;" > Buddies Club</a></li>
-  </div>
-  <div class="box5">
-  <li><a href="../templates/chess.html" style= "color: #9b3535;" > Chess Team</a></li>
-  </div>
-  <div class="box6">
-  <li><a href="../templates/color.html" style= "color: #000000;" >Color Guard</a></li>
-  </div>
-  <div class="box7">
-  <li><a href="../templates/esports.html" style= "color: #9b3535;" >Competitive eSports</a></li>
-  </div>
-  <div class="box8">
-  <li><a href="../templates/computer.html" style= "color: #000000;" >Computer Club</a></li>
-  </div>
-  <div class="box9">
-  <li><a href="../templates/theatre.html" style= "color: #faf9f9;" >Contest Theatre</a></li>
-  </div>
-  <div class="box10">
-  <li><a href="../templates/writingclub.html" style= "color: #000000;" >Creative Writing Club</a></li>
-  </div>
-  <div class="box11">
-  <li><a href="../templates/culinary.html" style= "color: #faf9f9;" >Culinary Club</a></li>
-  </div>
-  <div class="box12">
-  <li><a href="../templates/dance.html" style= "color: #9b3535;" >Orchesis Dance Program</a></li>
-  </div>
-</ul>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search...">
+<div id="filter">
+  <label>Filter by Weekday:</label>
+  <select onchange="filterTable()">
+    <option value="Monday">Monday</option>
+    <option value="Tuesday">Tuesday</option>
+    <option value="Wednesday">Wednesday</option>
+    <option value="Thursday">Thursday</option>
+    <option value="Friday">Friday</option>
+    <option value="Saturday">Saturday</option>
+    <option value="Sunday">Sunday</option>
+  </select>
+</div>
+<table id="myTable">
+  <tr class="header">
+    <th style="width:36%;">Name</th>
+    <th style="width:22%;">Times</th>
+    <th styke="width:22%">Dates</th>
+    {% for clubs in clubs %}
+      <tr>
+      <td>
+        <div class="box1">
+          <a href="{{url_for('base', Name = clubs['Name'])}}" style= "color: #faf9f9;" >
+      {{clubs['Name']}}
+            </a>
+        </div>
+      </td>
+      <td>
+        <div class="box2">
+      {{clubs['Times']}}
+        </div>
+      </td>
+      <td>
+        <div class="box3">
+      {{clubs['Dates']}}
+        </div>
+      </td>
+      </tr>
+    {% endfor %}
+  </tr>
+<body>
+	<script>
+		function filterTable() {
+			var dropdown = document.getElementById("Times");
+			var table = document.getElementById("myTable");
+			var rows = table.getElementsByTagName("tr");
 
-<script>
-  function myFunction() {
-    // Declare variables
-    var input, filter, ul, li, a, i;
-    input = document.getElementById("mySearch");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myMenu");
-    li = ul.getElementsByTagName("li");
-  
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
-      a = li[i].getElementsByTagName("a")[0];
-      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        li[i].style.display = "";
-      } else {
-        li[i].style.display = "none";
+			for (var i = 1; i < rows.length; i++) {
+				var cells = rows[i].getElementsByTagName("td");
+				var language = cells[0].innerHTML.toLowerCase();
+				var filter = dropdown.value.toLowerCase();
+
+				if (filter === "" || language === filter) {
+					rows[i].style.display = "";
+				} else {
+					rows[i].style.display = "none";
+				}
+			}
+		}
+	</script>
+</body>
+  <script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
       }
     }
-  }
-  </script>
-<p> 
-  Hello, {{name}} 
-  Click on the search bar above to search for clubs</p>
+    </script>
+<p>
+  Hello,
+  Click on the search bar above to search for clubs
+</p>
 </body>
 {%endblock%}
-</html>

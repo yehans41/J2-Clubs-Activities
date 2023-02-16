@@ -1,19 +1,164 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-
-    <link href="{{url_for('static', filename = 'bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-
-    <meta charset="UTF-8">
-    <title>{% block title %} {% endblock %} </title>
-</head>    
+  <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);
+      background-color:rgb(116, 113, 113)
+    }
+    h1{
+      font-family: 'Open Sans';
+      color: #ece2e2;
+      font-size: 35pt;
+    }
+    h2{
+      font-family: 'Roboto';
+      position: relative;
+      color: #ece2e2;
+      top: 55%;
+    }
+    p{
+      position: relative;
+      font-size: 16;
+      font-family:Tahoma;
+    }
+    div.box1 {
+      background-color: #8f1f1f;
+      border: 1px solid #8f1f1f;
+      padding: 20px;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1200px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: #ece2e2;
+    }
+    div.box2 {
+    background-color: #ece2e2;
+    border: 1px solid #ece2e2;
+    padding: 20px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-150%, 0%);
+    width: 350px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:#e63b3b;
+    height: 300px;
+    }
+    div.box3 {
+    background-color: #ecebeb;
+    border: 1px solid #ecebeb;
+    padding: 20px;
+    position: absolute;
+    top: 175%;
+    left: 50%;
+    transform: translate(30%, 0%);
+    width: 400px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #e63b3b;
+    }
+    div.box4 {
+    background-color: #a01717;
+    border: 1px solid #a01717;
+    padding: 20px;
+    position: absolute;
+    top: 140%;
+    left: 50%;
+    transform: translate(30%, 0%);
+    width: 400px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #ecebeb;
+    }
+    img {
+      width: 700px;
+      height: 500px;
+    }
+    .swiffy-slider {
+      width:700px;
+      transform: translate(5%, 195%);
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base</title>
+</head>
 <body>
-
-    {% block body %} {% endblock %}
 <script type ="text/javascript" src="{{url_for('static', filename='jquery/dist/jquery.min.js')}}"></script>
-
 <script type ="text/javascript" src = "{{url_for('static', filename = 'bootstrap/dist/js/bootstrap.min.js')}}"></script>
-
+  <h1> <center>
+    {% for clubs in clubs %}
+      {% if clubs['Name'] == Name %}
+        <h1>{{ clubs['Name'] }}</h1>
+      {% endif %}
+    {% endfor %}</center></h1>
+  <div class="box1">
+    <h2><center>
+    Description
+    </center></h2>
+    <p>
+      {% for clubs in clubs %}
+        {% if clubs['Name'] == Name %}
+          {{ clubs['Description'] }}
+        {% endif %}
+      {% endfor %}
+    </p>
+  </div>
+  <div class="box2">
+    <h3><center>Contact Info</center></h3>
+    <p>
+      Teacher(s): 
+      {% for clubs in clubs %}
+        {% if clubs['Name'] == Name %}
+          {{ clubs['ContactInfo'] }}
+        {% endif %}
+      {% endfor %}
+      <br>
+      Email:
+      {% for clubs in clubs %}
+        {% if clubs['Name'] == Name %}
+          {{ clubs['Emails'] }}
+        {% endif %}
+      {% endfor %}
+    </p>
+  </div> 
+  <div class="box3">
+    <h3><center>SIGN UP FORM</center></h3>
+    {% for clubs in clubs %}
+        {% if clubs['Name'] == Name %}
+          <a href = "{{clubs['SignupForm']}}" style= "color:#a01717;"><center> CLICK HERE </center></a>
+        {% endif %}
+    {% endfor %}
+  </div>
+  <div class="box4">
+    <h4><center>Follow Us For More Info!</center></h4>
+    {% for clubs in clubs %}
+        {% if clubs['Name'] == Name %}
+          <a href = "{{clubs['InstaHandle']}}" style= "color: #ecebeb;" ><center> Instagram </center> </a>
+        {% endif %}
+    {% endfor %}
+    {% for clubs in clubs %}
+      {% if clubs['Name'] == Name %}
+      <a href = "{{clubs['TwitterHandle']}}" style= "color:#ecebeb;"><center> Twitter </center><a>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="swiffy-slider slider-item-ratio slider-nav-autoplay" data-slider-nav-autoplay-interval="4000" >
+    <ul class="slider-container">
+      <li><img src="https://jnswire.s3.amazonaws.com/jns-media/d9/de/11840892/huntley1600.jpg"></li>
+      <li><img src="https://pbs.twimg.com/media/DOdDUCfX0AIQwCD?format=jpg&name=large"></li>
+      <li><img src="https://jnswire.s3.amazonaws.com/jns-media/d9/de/11840892/huntley1600.jpg"></li>
+      <li><img src="https://jnswire.s3.amazonaws.com/jns-media/d9/de/11840892/huntley1600.jpg"></li>
+    </ul>
+    <button type="button" class="slider-nav"></button>
+    <button type="button" class="slider-nav slider-nav-next"></button>
+    <div class="slider-indicators">
+      <button class="active"></button>
+      <button></button>
+      <button></button>
+      <button></button>
+    </div>
+  </div>
 </body>
-</html>
