@@ -131,7 +131,7 @@ div.box3{
     <th style="width:22%">Dates</th>
     {% for clubs in clubs %}
       <tr>
-      <td>
+      <td class="clubContainer" data-Monday = "{{clubs['Monday']}}">
         <div class="box1">
           <a href="{{url_for('base', Name = clubs['Name'])}}" style= "color: #faf9f9;" >
       {{clubs['Name']}}
@@ -154,8 +154,7 @@ div.box3{
   <script>
     function myFunction() {
       // Declare variables
-      var input, filter, table, tr, td, i, txtValue;
-      //daysMatch, searchMatch
+      var input, filter, table, tr, td, i, txtValue, daysMatch, searchMatch;
       input = document.getElementById("myInput");
       filter = input.value.toUpperCase();
       table = document.getElementById("myTable");
@@ -164,19 +163,20 @@ div.box3{
       for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[0];
         if (td) {
-          //searchMatch = txtValue.toUpperCase().indexOf(filter) > -1
           txtValue = td.textContent || td.innerText;
-          //daysMatch = td.dataset.monday == document.getElementById("Monday").value
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          searchMatch = txtValue.toUpperCase().indexOf(filter) > -1
+          daysMatch = td.dataset.monday == document.getElementById("Monday").value
+          if(daysMatch && searchMatch){
             tr[i].style.display = "";
-          } else {
+            console.log(txtValue)
+          }else{
             tr[i].style.display = "none";
           }
-          /*if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          } else {
-            tr[i].style.display = "none";
-          }*/
+          //if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            //tr[i].style.display = "";
+          //} else {
+            //tr[i].style.display = "none";
+          //}
         }
       }
     }
