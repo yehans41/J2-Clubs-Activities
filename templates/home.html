@@ -4,10 +4,10 @@
   background-image: url('/css/searchicon.png'); /* Add a search icon to input */
   background-position: 10px 12px; /* Position the search icon */
   background-repeat: no-repeat; /* Do not repeat the icon image */
-  width: 25%; /* Quarter-width */
+  width: 30%; /* Quarter-width */
   position: absolute;
-  top: 13%;
-  left: 3%; /*position on screen*/
+  top: 11%;
+  left: 1%; /*position on screen*/
   font-size: 16px; /* Increase font-size */
   padding: 12px 20px 12px 40px; /* Add some padding */
   border: 1px solid #ddd; /* Add a grey border */
@@ -18,15 +18,15 @@
   width: 85%; /* width */
   position: absolute;
   top: 25%;
-  border: 1px solid #7e7e7e; /* Add a grey border */
+  border: 8px solid #7e7e7e; /* Add a grey border */
   font-size: 18px; /* Increase font-size */
 }
 #myTable th, #myTable td {
   text-align: left; /* Left-align text */
-  padding: 12px; /* Add padding */
+  padding: 10px; /* Add padding */
 }
 #myTable tr {
-  border-bottom: 1px solid #7e7e7e;
+  border-bottom: 8px solid #7e7e7e;
 }
 #myTable tr.header, #myTable tr:hover {
   background-color: #7e7e7e;
@@ -66,7 +66,7 @@ div.box1 {
       background-color: #9b3535;
       border: 1px solid #000000;
       color: #faf9f9;
-      padding: 20px;
+      padding: 30px;
       width: 300px;
 }
 div.box2 {
@@ -75,7 +75,7 @@ div.box2 {
       background-color: #363131;
       border: 1px solid #000000;
       color: #faf9f9;
-      padding: 20px;
+      padding: 30px;
       width: 300px;
 }
 div.box3{
@@ -84,17 +84,17 @@ div.box3{
       background-color: #000000;
       border: 1px solid #000000;
       color: #faf9f9;
-      padding: 20px;
+      padding: 30px;
       width: 300px;
 }
 #filter{
   color: #000000;
   font-family: sans-serif;
   position: absolute;
-  top: 12%;
+  top: 5%;
   left: 32%;
   padding: 5px;
-	width: 150px;
+	width: 300px;
 	margin-right: 10px;
   margin: 10px 0;
 }
@@ -106,25 +106,29 @@ div.box3{
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1> Huntley High School Clubs</h1>
+<h1> Huntley High School Clubs</h1>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search...">
-<div id="filter">
-  <label>Filter by Weekday:</label>
-  <select onchange="filterTable()">
-    <option value="Monday">Monday</option>
-    <option value="Tuesday">Tuesday</option>
-    <option value="Wednesday">Wednesday</option>
-    <option value="Thursday">Thursday</option>
-    <option value="Friday">Friday</option>
-    <option value="Saturday">Saturday</option>
-    <option value="Sunday">Sunday</option>
-  </select>
+<div id = filter>
+<input type="checkbox" id="Monday">
+<label for="Monday"> Monday</label><br>
+<input type="checkbox" id="Tuesday">
+<label for="Tuesday"> Tuesday</label><br>
+<input type="checkbox" id="Wednesday">
+<label for="Wednesday"> Wednesday</label><br>
+<input type="checkbox" id="Thursday">
+<label for="Thursday"> Thursday</label><br>
+<input type="checkbox" id="Friday">
+<label for="Friday"> Friday</label><br>
+<input type="checkbox" id="Saturday">
+<label for="Saturday"> Saturday</label><br>
+<input type="checkbox" id="Sunday">
+<label for="Sunday"> Sunday</label><br>
 </div>
 <table id="myTable">
   <tr class="header">
     <th style="width:36%;">Name</th>
     <th style="width:22%;">Times</th>
-    <th styke="width:22%">Dates</th>
+    <th style="width:22%">Dates</th>
     {% for clubs in clubs %}
       <tr>
       <td>
@@ -147,31 +151,11 @@ div.box3{
       </tr>
     {% endfor %}
   </tr>
-<body>
-	<script>
-		function filterTable() {
-			var dropdown = document.getElementById("Times");
-			var table = document.getElementById("myTable");
-			var rows = table.getElementsByTagName("tr");
-
-			for (var i = 1; i < rows.length; i++) {
-				var cells = rows[i].getElementsByTagName("td");
-				var language = cells[0].innerHTML.toLowerCase();
-				var filter = dropdown.value.toLowerCase();
-
-				if (filter === "" || language === filter) {
-					rows[i].style.display = "";
-				} else {
-					rows[i].style.display = "none";
-				}
-			}
-		}
-	</script>
-</body>
   <script>
     function myFunction() {
       // Declare variables
       var input, filter, table, tr, td, i, txtValue;
+      //daysMatch, searchMatch
       input = document.getElementById("myInput");
       filter = input.value.toUpperCase();
       table = document.getElementById("myTable");
@@ -180,19 +164,26 @@ div.box3{
       for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[0];
         if (td) {
+          //searchMatch = txtValue.toUpperCase().indexOf(filter) > -1
           txtValue = td.textContent || td.innerText;
+          //daysMatch = td.dataset.monday == document.getElementById("Monday").value
           if (txtValue.toUpperCase().indexOf(filter) > -1) {
             tr[i].style.display = "";
           } else {
             tr[i].style.display = "none";
           }
+          /*if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }*/
         }
       }
     }
-    </script>
-<p>
+  </script>
+<!--<p>
   Hello,
   Click on the search bar above to search for clubs
-</p>
+</p>-->
 </body>
 {%endblock%}
