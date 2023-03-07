@@ -109,7 +109,7 @@ div.box3{
 <h1> Huntley High School Clubs</h1>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search...">
 <div id = filter>
-<input type="checkbox" id="Monday">
+<input type="checkbox" id="Monday" onchange="myFunction()">
 <label for="Monday"> Monday</label><br>
 <input type="checkbox" id="Tuesday">
 <label for="Tuesday"> Tuesday</label><br>
@@ -166,7 +166,7 @@ div.box3{
           txtValue = td.textContent || td.innerText;
           searchMatch = txtValue.toUpperCase().indexOf(filter) > -1
           daysMatch = td.dataset.monday == document.getElementById("Monday").value
-          if(daysMatch && searchMatch){
+          if(daysMatch || searchMatch){
             tr[i].style.display = "";
             console.log(txtValue)
           }else{
