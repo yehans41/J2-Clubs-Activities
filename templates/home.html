@@ -43,6 +43,9 @@ body {
       color: #000000;
       font-family: sans-serif;
 }
+body::-webkit-scrollbar{
+  display:none;
+}
 h1 {
       text-align: center;
       color: #9b3535;
@@ -87,17 +90,157 @@ div.box3{
       padding: 30px;
       width: 300px;
 }
-#filter{
+#Mon {
+  font-family: sans-serif;
+  position: relative; 
+  left: 400px; 
+  top: -20px; 
+}
+#Tue {
+  font-family: sans-serif;
+  position: relative; 
+  left: 400px; 
+  top: -20px; 
+}
+#Wed {
+  font-family: sans-serif;
+  position: relative; 
+  left: 400px; 
+  top: -20px; 
+}
+#Thu {
+  font-family: sans-serif;
+  position: relative; 
+  left: 400px; 
+  top: -20px; 
+}
+#Fri {
+  font-family: sans-serif;
+  position: relative; 
+  left: 400px; 
+  top: -20px; 
+}
+/*
+#Sat {
+  font-family: sans-serif;
+  position: relative; 
+  left: 500px; 
+  top: -113px; 
+}
+#Sun {
+  font-family: sans-serif;
+  position: relative; 
+  left: 500px; 
+  top: -113px; 
+}
+*/
+#Monday{
+  float: left;
+  display: flex;
   color: #000000;
   font-family: sans-serif;
-  position: absolute;
-  top: 5%;
-  left: 32%;
-  padding: 5px;
-	width: 300px;
-	margin-right: 10px;
-  margin: 10px 0;
+  position: relative;
+  padding: 2px;
+  margin: 1px 5;
+  width: 30px;
+  height: 16px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  left: 400px; 
+  top: -20px;  
 }
+#Tuesday{
+  float: left;
+  display: flex;
+  color: #000000;
+  font-family: sans-serif;
+  position: relative;
+  padding: 2px;
+  margin: 1px 5;
+  width: 30px;
+  height: 16px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  left: 400px; 
+  top: -20px; 
+}
+#Wednesday{
+  float: left;
+  display: flex;
+  color: #000000;
+  font-family: sans-serif;
+  position: relative;
+  padding: 2px;
+  margin: 1px 5;
+  width: 30px;
+  height: 16px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  left: 400px; 
+  top: -20px; 
+}
+#Thursday{
+  float: left;
+  display: flex;
+  color: #000000;
+  font-family: sans-serif;
+  position: relative;
+  padding: 2px;
+  margin: 1px 5;
+  width: 30px;
+  height: 16px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  left: 400px; 
+  top: -20px; 
+}
+#Friday{
+  float: left;
+  display: flex;
+  color: #000000;
+  font-family: sans-serif;
+  position: relative;
+  padding: 2px;
+  margin: 1px 5;
+  width: 30px;
+  height: 16px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  left: 400px; 
+  top: -20px; 
+}
+/*
+#Saturday{
+  float: left;
+  display: flex;
+  color: #000000;
+  font-family: sans-serif;
+  position: relative;
+  padding: 2px;
+  margin: 1px 5;
+  width: 30px;
+  height: 16px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  left: 500px; 
+  top: -113px; 
+}
+#Sunday{
+  float: left;
+  display: flex;
+  color: #000000;
+  font-family: sans-serif;
+  position: relative;
+  padding: 2px;
+  margin: 1px 5;
+  width: 30px;
+  height: 16px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  left: 500px; 
+  top: -113px; 
+}
+*/
 </style>
 <head>
   <title>Home</title>
@@ -108,21 +251,21 @@ div.box3{
 <body>
 <h1> Huntley High School Clubs</h1>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search...">
-<div id = filter>
+<div id="checks">
 <input type="checkbox" id="Monday" onchange="myFunction()">
-<label for="Monday"> Monday</label><br>
-<input type="checkbox" id="Tuesday">
-<label for="Tuesday"> Tuesday</label><br>
-<input type="checkbox" id="Wednesday">
-<label for="Wednesday"> Wednesday</label><br>
-<input type="checkbox" id="Thursday">
-<label for="Thursday"> Thursday</label><br>
-<input type="checkbox" id="Friday">
-<label for="Friday"> Friday</label><br>
-<input type="checkbox" id="Saturday">
-<label for="Saturday"> Saturday</label><br>
-<input type="checkbox" id="Sunday">
-<label for="Sunday"> Sunday</label><br>
+<label for="Monday" id="Mon"> Monday</label><br>
+<input type="checkbox" id="Tuesday" onchange="myFunction()">
+<label for="Tuesday" id="Tue"> Tuesday</label><br>
+<input type="checkbox" id="Wednesday" onchange="myFunction()">
+<label for="Wednesday" id="Wed"> Wednesday</label><br>
+<input type="checkbox" id="Thursday" onchange="myFunction()">
+<label for="Thursday" id="Thu"> Thursday</label><br>
+<input type="checkbox" id="Friday" onchange="myFunction()">
+<label for="Friday" id="Fri"> Friday</label><br>
+<input type="checkbox" id="Saturday" onchange="myFunction()">
+<label for="Saturday" id="Sat"> Saturday</label><br>
+<input type="checkbox" id="Sunday" onchange="myFunction()">
+<label for="Sunday" id="Sun"> Sunday</label><br>
 </div>
 <table id="myTable">
   <tr class="header">
@@ -131,7 +274,9 @@ div.box3{
     <th style="width:22%">Dates</th>
     {% for clubs in clubs %}
       <tr>
-      <td class="clubContainer" data-Monday = "{{clubs['Monday']}}">
+      <td class="clubContainer" data-Monday = "{{clubs['Monday']}}" data-Tuesday = "{{clubs['Tuesday']}}" 
+      data-Wednesday = "{{clubs['Wednesday']}}" data-Thursday = "{{clubs['Thursday']}}" 
+      data-Friday = "{{clubs['Friday']}}" data-Saturday = "{{clubs['Saturday']}}" data-Sunday = "{{clubs['Sunday']}}">
         <div class="box1">
           <a href="{{url_for('base', Name = clubs['Name'])}}" style= "color: #faf9f9;" >
       {{clubs['Name']}}
@@ -161,29 +306,41 @@ div.box3{
       tr = table.getElementsByTagName("tr");
       // Loop through all table rows, and hide those who don't match the search query
       for (i = 0; i < tr.length; i++) {
+        daysMatch = true;
         td = tr[i].getElementsByTagName("td")[0];
         if (td) {
           txtValue = td.textContent || td.innerText;
           searchMatch = txtValue.toUpperCase().indexOf(filter) > -1
-          daysMatch = td.dataset.monday == document.getElementById("Monday").value
-          if(daysMatch || searchMatch){
+          if (document.getElementById("Monday").checked) {
+            daysMatch = daysMatch && td.dataset.monday == '1'; //only filter by this day if its checkbox is checked
+          }
+          if (document.getElementById("Tuesday").checked) {
+            daysMatch = daysMatch && td.dataset.tuesday == '1'; //only filter by this day if its checkbox is checked
+          }
+          if (document.getElementById("Wednesday").checked) {
+            daysMatch = daysMatch && td.dataset.wednesday == '1'; //only filter by this day if its checkbox is checked
+          }
+          if (document.getElementById("Thursday").checked) {
+            daysMatch = daysMatch && td.dataset.thursday == '1'; //only filter by this day if its checkbox is checked
+          }
+          if (document.getElementById("Friday").checked) {
+            daysMatch = daysMatch && td.dataset.friday == '1'; //only filter by this day if its checkbox is checked
+          }
+          if (document.getElementById("Saturday").checked) {
+            daysMatch = daysMatch && td.dataset.saturday == '1'; //only filter by this day if its checkbox is checked
+          }
+          if (document.getElementById("Sunday").checked) {
+            daysMatch = daysMatch && td.dataset.sunday == '1'; //only filter by this day if its checkbox is checked
+          }
+          if(daysMatch && searchMatch){
             tr[i].style.display = "";
-            console.log(txtValue)
+            //console.log(txtValue)
           }else{
             tr[i].style.display = "none";
           }
-          //if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            //tr[i].style.display = "";
-          //} else {
-            //tr[i].style.display = "none";
-          //}
         }
       }
     }
   </script>
-<!--<p>
-  Hello,
-  Click on the search bar above to search for clubs
-</p>-->
 </body>
 {%endblock%}
