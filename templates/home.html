@@ -1,139 +1,145 @@
 {% block body %}
+<!doctype html>
+<html lang="en">
+</html>
 <style>
+  html{
+    scroll-behavior: smooth;
+  }
 #myInput {
   background-image: url('/css/searchicon.png'); /* Add a search icon to input */
   background-position: 10px 12px; /* Position the search icon */
   background-repeat: no-repeat; /* Do not repeat the icon image */
   width: 30%; /* Quarter-width */
   position: absolute;
-  top: 11%;
+  top: 20%;
   left: 1%; /*position on screen*/
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px; /* Increase font-size */
-  padding: 12px 20px 12px 40px; /* Add some padding */
+  padding: 16px 20px 16px 40px; /* Add some padding */
   border: 1px solid #ddd; /* Add a grey border */
   margin-bottom: 12px; /* Add some space below the input */
 }
 #myTable {
   border-collapse: collapse; /* Collapse borders */
-  width: 85%; /* width */
+  border-radius: 16px;
+  border-collapse: collapse;
+  overflow: hidden;
+  left: 1%; 
+  width: 98%; /* width */
   position: absolute;
-  top: 25%;
-  border: 8px solid #7e7e7e; /* Add a grey border */
-  font-size: 18px; /* Increase font-size */
+  top: 40%;
+  border: 6px solid #7e7e7e; /* Add a grey border */
+  font-size: 20px; /* Increase font-size */
 }
 #myTable th, #myTable td {
   text-align: left; /* Left-align text */
   padding: 10px; /* Add padding */
 }
 #myTable tr {
-  border-bottom: 8px solid #7e7e7e;
+  border-bottom: 7px solid #7e7e7e;
 }
 #myTable tr.header, #myTable tr:hover {
   background-color: #7e7e7e;
 }
-#p1 {
-  color: #000000;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  position: absolute;
-  top: 18%;
-  left: 2%; /*position on screen*/
-}
 body {
       background-color: #b4b3b3;
       color: #000000;
-      font-family: sans-serif;
 }
 body::-webkit-scrollbar{
   display:none;
 }
 h1 {
       text-align: center;
+      font-family: 'Golos Text', sans-serif;
       color: #9b3535;
+      position: relative;
+      top: -5px;
 }
 p {
-      font-family:'Segoe UI';
-      font-size: 16;
-      line-height: 1.5;
+      font-family: 'Open sans';
+      font-size: 18px;
+      color: #000000;
       position: absolute;
-      top: 18%;
-      left: -1%;
-      text-indent: 50px;
+      top: 6%;
+      left: 1%;
 }
 img {
       max-width: 100%;
       height: auto;
 }
 div.box1 {
-      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 14px;
       background-color: #9b3535;
       border: 1px solid #000000;
       color: #faf9f9;
-      padding: 30px;
-      width: 300px;
+      padding: 35px;
+      width: 360px;
+      border-radius: 16px;
+      border-collapse: collapse;
 }
 div.box2 {
-      font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 14px;
       background-color: #363131;
       border: 1px solid #000000;
       color: #faf9f9;
-      padding: 30px;
-      width: 300px;
+      padding: 35px;
+      width: 360px;
+      border-radius: 16px;
+      border-collapse: collapse;
 }
 div.box3{
-  font-family: Verdana, Geneva, "Tahoma", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 14px;
       background-color: #000000;
       border: 1px solid #000000;
       color: #faf9f9;
-      padding: 30px;
-      width: 300px;
+      padding: 35px;
+      width: 400px;
+      border-radius: 16px;
+      border-collapse: collapse;
+}
+.selector-for-some-widget {
+  box-sizing: content-box;
 }
 #Mon {
   font-family: sans-serif;
   position: relative; 
-  left: 400px; 
-  top: -20px; 
+  left: 420px; 
+  top: 65px; 
 }
 #Tue {
   font-family: sans-serif;
   position: relative; 
-  left: 400px; 
-  top: -20px; 
+  left: 420px; 
+  top: 65px; 
 }
 #Wed {
   font-family: sans-serif;
   position: relative; 
-  left: 400px; 
-  top: -20px; 
+  left: 520px; 
+  top: -2px; 
 }
 #Thu {
   font-family: sans-serif;
   position: relative; 
-  left: 400px; 
-  top: -20px; 
+  left: 520px; 
+  top: -1px; 
 }
 #Fri {
   font-family: sans-serif;
   position: relative; 
-  left: 400px; 
-  top: -20px; 
+  left: 635px; 
+  top: -69px; 
 }
-/*
 #Sat {
-  font-family: sans-serif;
-  position: relative; 
-  left: 500px; 
-  top: -113px; 
+  display:none
 }
 #Sun {
-  font-family: sans-serif;
-  position: relative; 
-  left: 500px; 
-  top: -113px; 
+  display:none
 }
-*/
 #Monday{
   float: left;
   display: flex;
@@ -146,8 +152,8 @@ div.box3{
   height: 16px;
   border: 1px solid #aaa;
   border-radius: 3px;
-  left: 400px; 
-  top: -20px;  
+  left: 420px; 
+  top: 70px;  
 }
 #Tuesday{
   float: left;
@@ -161,8 +167,8 @@ div.box3{
   height: 16px;
   border: 1px solid #aaa;
   border-radius: 3px;
-  left: 400px; 
-  top: -20px; 
+  left: 420px; 
+  top: 70px; 
 }
 #Wednesday{
   float: left;
@@ -176,8 +182,8 @@ div.box3{
   height: 16px;
   border: 1px solid #aaa;
   border-radius: 3px;
-  left: 400px; 
-  top: -20px; 
+  left: 520px; 
+  top: 2px; 
 }
 #Thursday{
   float: left;
@@ -191,8 +197,8 @@ div.box3{
   height: 16px;
   border: 1px solid #aaa;
   border-radius: 3px;
-  left: 400px; 
-  top: -20px; 
+  left: 520px; 
+  top: 4px; 
 }
 #Friday{
   float: left;
@@ -206,51 +212,30 @@ div.box3{
   height: 16px;
   border: 1px solid #aaa;
   border-radius: 3px;
-  left: 400px; 
-  top: -20px; 
+  left: 635px; 
+  top: -64px; 
 }
-/*
 #Saturday{
-  float: left;
-  display: flex;
-  color: #000000;
-  font-family: sans-serif;
-  position: relative;
-  padding: 2px;
-  margin: 1px 5;
-  width: 30px;
-  height: 16px;
-  border: 1px solid #aaa;
-  border-radius: 3px;
-  left: 500px; 
-  top: -113px; 
+  display:none
 }
 #Sunday{
-  float: left;
-  display: flex;
-  color: #000000;
-  font-family: sans-serif;
-  position: relative;
-  padding: 2px;
-  margin: 1px 5;
-  width: 30px;
-  height: 16px;
-  border: 1px solid #aaa;
-  border-radius: 3px;
-  left: 500px; 
-  top: -113px; 
+  display:none 
 }
-*/
 </style>
 <head>
   <title>Home</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@500&family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background-color: #b4b3b3;">
 <h1> Huntley High School Clubs</h1>
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search...">
+<input type="text" id="myInput" class= "shadow-lg mb-5 bg-white rounded" onkeyup="myFunction()" placeholder="Search...">
 <div id="checks">
 <input type="checkbox" id="Monday" onchange="myFunction()">
 <label for="Monday" id="Mon"> Monday</label><br>
@@ -269,29 +254,33 @@ div.box3{
 </div>
 <table id="myTable">
   <tr class="header">
-    <th style="width:36%;">Name</th>
-    <th style="width:22%;">Times</th>
-    <th style="width:22%">Dates</th>
+    <th style="width:30%;">Name</th>
+    <th style="width:30%;">Times</th>
+    <th style="width:30%">Dates</th>
     {% for clubs in clubs %}
       <tr>
       <td class="clubContainer" data-Monday = "{{clubs['Monday']}}" data-Tuesday = "{{clubs['Tuesday']}}" 
       data-Wednesday = "{{clubs['Wednesday']}}" data-Thursday = "{{clubs['Thursday']}}" 
       data-Friday = "{{clubs['Friday']}}" data-Saturday = "{{clubs['Saturday']}}" data-Sunday = "{{clubs['Sunday']}}">
-        <div class="box1">
-          <a href="{{url_for('base', Name = clubs['Name'])}}" style= "color: #faf9f9;" >
+          <a href="{{url_for('base', Name = clubs['Name'])}}" style="text-decoration: none; color: #faf9f9;">
+            <div class="box1">
       {{clubs['Name']}}
-            </a>
-        </div>
+            </div>
+          </a>
       </td>
       <td>
+        <a href="{{url_for('base', Name = clubs['Name'])}}" style="text-decoration: none; color: #faf9f9;">
         <div class="box2">
       {{clubs['Times']}}
         </div>
+        </a>
       </td>
       <td>
+        <a href="{{url_for('base', Name = clubs['Name'])}}" style="text-decoration: none; color: #faf9f9;">
         <div class="box3">
       {{clubs['Dates']}}
         </div>
+        </a>
       </td>
       </tr>
     {% endfor %}
@@ -342,5 +331,11 @@ div.box3{
       }
     }
   </script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<p>
+  Use the search bar and filters below to find clubs!
+</p>
 </body>
 {%endblock%}

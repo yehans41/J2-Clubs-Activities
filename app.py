@@ -16,8 +16,6 @@ def get_db_connection():
 def home():
     conn = get_db_connection()
     clubs = conn.execute('SELECT * from clubs LEFT JOIN weekdays on clubs.name = weekdays.name').fetchall()
-    #clubs = conn.execute('SELECT * from clubs').fetchall()
-    #weekdays = conn.execute('SELECT * from Weekdays').fetchall()
     conn.close()
     return render_template("home.html", clubs=clubs)
 @app.route("/profile/<username>")
@@ -25,8 +23,6 @@ def home():
 def base():
     conn = get_db_connection()
     clubs = conn.execute('SELECT * from clubs LEFT JOIN weekdays on clubs.name = weekdays.name').fetchall()
-    #clubs = conn.execute('SELECT * from clubs').fetchall()
-    #weekdays = conn.execute('SELECT * from Weekdays').fetchall()
     conn.close()
     Name = request.args.get('Name')
     return render_template("base.html", clubs=clubs, Name=Name)
