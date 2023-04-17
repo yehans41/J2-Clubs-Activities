@@ -12,10 +12,10 @@
   background-repeat: no-repeat; /* Do not repeat the icon image */
   width: 30%; /* Quarter-width */
   position: absolute;
-  top: 20%;
+  top: 28%;
   left: 1%; /*position on screen*/
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px; /* Increase font-size */
+  font-size: 18px; /* Increase font-size */
   padding: 16px 20px 16px 40px; /* Add some padding */
   border: 1px solid #ddd; /* Add a grey border */
   margin-bottom: 12px; /* Add some space below the input */
@@ -49,20 +49,24 @@ body {
 body::-webkit-scrollbar{
   display:none;
 }
-h1 {
+p2 {
+      font-weight: bold;
+      font-size: 45px;
       text-align: center;
-      font-family: 'Golos Text', sans-serif;
+      left: 26%;
+      font-family: 'Golos Text';
       color: #9b3535;
       position: relative;
-      top: -5px;
+      top: 0px;
 }
 p {
       font-family: 'Open sans';
-      font-size: 18px;
+      font-weight: bold;
+      font-size: 26px;
       color: #000000;
       position: absolute;
-      top: 6%;
-      left: 1%;
+      top: 8%;
+      left: 2%;
 }
 img {
       max-width: 100%;
@@ -104,35 +108,44 @@ div.box3{
 .selector-for-some-widget {
   box-sizing: content-box;
 }
+input[type="checkbox"] {
+  transform: scale(1.5);
+  /* Adjust the number as needed to change the size */
+}
 #Mon {
-  font-family: sans-serif;
-  position: relative; 
-  left: 420px; 
-  top: 65px; 
+  position: absolute; 
+  font-family: 'Open sans';
+  font-size: 20px;
+  left: 5%; 
+  top: 15%; 
 }
 #Tue {
-  font-family: sans-serif;
-  position: relative; 
-  left: 420px; 
-  top: 65px; 
+  position: absolute; 
+  font-family: 'Open sans';
+  font-size: 20px;
+  left: 5%; 
+  top: 21%; 
 }
 #Wed {
-  font-family: sans-serif;
-  position: relative; 
-  left: 520px; 
-  top: -2px; 
+  position: absolute; 
+  font-family: 'Open sans';
+  font-size: 20px;
+  left: 15%; 
+  top: 15%;
 }
 #Thu {
-  font-family: sans-serif;
-  position: relative; 
-  left: 520px; 
-  top: -1px; 
+  position: absolute; 
+  font-family: 'Open sans';
+  font-size: 20px;
+  left: 15%; 
+  top: 21%;
 }
 #Fri {
-  font-family: sans-serif;
-  position: relative; 
-  left: 635px; 
-  top: -69px; 
+  position: absolute; 
+  font-family: 'Open sans';
+  font-size: 20px;
+  left: 27%; 
+  top: 15%;
 }
 #Sat {
   display:none
@@ -145,75 +158,75 @@ div.box3{
   display: flex;
   color: #000000;
   font-family: sans-serif;
-  position: relative;
+  position: absolute;
   padding: 2px;
   margin: 1px 5;
   width: 30px;
   height: 16px;
   border: 1px solid #aaa;
   border-radius: 3px;
-  left: 420px; 
-  top: 70px;  
+  left: 2%; 
+  top: 16%;  
 }
 #Tuesday{
   float: left;
   display: flex;
   color: #000000;
   font-family: sans-serif;
-  position: relative;
+  position: absolute;
   padding: 2px;
   margin: 1px 5;
   width: 30px;
   height: 16px;
   border: 1px solid #aaa;
   border-radius: 3px;
-  left: 420px; 
-  top: 70px; 
+  left: 2%; 
+  top: 22%; 
 }
 #Wednesday{
   float: left;
   display: flex;
   color: #000000;
   font-family: sans-serif;
-  position: relative;
+  position: absolute;
   padding: 2px;
   margin: 1px 5;
   width: 30px;
   height: 16px;
   border: 1px solid #aaa;
   border-radius: 3px;
-  left: 520px; 
-  top: 2px; 
+  left: 12%; 
+  top: 16%; 
 }
 #Thursday{
   float: left;
   display: flex;
   color: #000000;
   font-family: sans-serif;
-  position: relative;
+  position: absolute;
   padding: 2px;
   margin: 1px 5;
   width: 30px;
   height: 16px;
   border: 1px solid #aaa;
   border-radius: 3px;
-  left: 520px; 
-  top: 4px; 
+  left: 12%; 
+  top: 22%; 
 }
 #Friday{
   float: left;
   display: flex;
   color: #000000;
   font-family: sans-serif;
-  position: relative;
+  position: absolute;
   padding: 2px;
   margin: 1px 5;
   width: 30px;
   height: 16px;
   border: 1px solid #aaa;
   border-radius: 3px;
-  left: 635px; 
-  top: -64px; 
+  left: 24%; 
+  top: 16%;  
 }
 #Saturday{
   display:none
@@ -223,6 +236,7 @@ div.box3{
 }
 </style>
 <head>
+  <p2> Huntley High School Clubs </p2>
   <title>Home</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -234,7 +248,6 @@ div.box3{
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@500&family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body style="background-color: #b4b3b3;">
-<h1> Huntley High School Clubs</h1>
 <input type="text" id="myInput" class= "shadow-lg mb-5 bg-white rounded" onkeyup="myFunction()" placeholder="Search...">
 <div id="checks">
 <input type="checkbox" id="Monday" onchange="myFunction()">
@@ -335,7 +348,7 @@ div.box3{
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <p>
-  Use the search bar and filters below to find clubs!
+  Filters:
 </p>
 </body>
 {%endblock%}
