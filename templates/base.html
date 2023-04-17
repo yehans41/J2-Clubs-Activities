@@ -205,19 +205,25 @@
   </div>
   <div class="swiffy-slider slider-item-ratio slider-nav-autoplay" data-slider-nav-autoplay-interval="4000" >
     <ul class="slider-container">
-      <li><img src="https://jnswire.s3.amazonaws.com/jns-media/d9/de/11840892/huntley1600.jpg"></li>
-      <li><img src="https://pbs.twimg.com/media/DOdDUCfX0AIQwCD?format=jpg&name=large"></li>
-      <li><img src="https://jnswire.s3.amazonaws.com/jns-media/d9/de/11840892/huntley1600.jpg"></li>
-      <li><img src="https://jnswire.s3.amazonaws.com/jns-media/d9/de/11840892/huntley1600.jpg"></li>
+    {% for clubs in clubs %}
+      {% if clubs['Name'] == Name %}
+      <li>
+        <img src="{{clubs['Image1']}}">
+      </li>
+      <li>
+        <img src="{{clubs['Image2']}}">
+      </li>
+      <li>
+        <img src="{{clubs['Image3']}}">
+      </li>
+      <li>
+        <img src="{{clubs['Image4']}}">
+      </li>
+      {% endif %}
+    {% endfor %}
     </ul>
     <button type="button" class="slider-nav"></button>
     <button type="button" class="slider-nav slider-nav-next"></button>
-    <div class="slider-indicators">
-      <button class="active"></button>
-      <button></button>
-      <button></button>
-      <button></button>
-    </div>
   </div>
   <script>
     var backButton = document.getElementById("back-btn");
